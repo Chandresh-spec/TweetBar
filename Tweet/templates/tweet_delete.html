@@ -1,0 +1,10 @@
+{% extends "layout.html" %}
+
+<form method="POST">
+    {% csrf_token %}
+    <h2> are u want delete the tweet?</h2>
+    <button type='submit'>yes</button>
+    <a href="{% url 'homepage' %}">Cancel</a>
+
+
+</form>

@@ -15,8 +15,13 @@
         </div>
         
         <div class="nav-menu">
-            <a href="#">Homepage</a>
+            <a href="{% url 'homepage' %}">Homepage</a>
+             <a href="{% url 'add_tweet' %}">ADDTweet</a>
             <a href="#">MyTweets</a>
+
+           
+
+
             
             <div class="search-container">
                 <input type="text" placeholder="Search...">
@@ -26,5 +31,8 @@
             <a href="#">Logout</a>
         </div>
     </nav>
+    {% block content %}
+    
+    {% endblock  %}
 </body>
 </html>
