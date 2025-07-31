@@ -1,11 +1,22 @@
 {% extends "layout.html" %}
 
-{% block content  %}
+{% block content %}
+<div class="form-container">
+    <h2>Share Your Thoughts</h2>
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        
+        <div class="form-group">
+            <label for="id_tweet">Your Tweet</label>
+            {{ form.tweet }}
+        </div>
 
-<form method="POST" enctype="multipart/form-data">
-    {% csrf_token %}
-    {{form.as_p}}
-    <button type="submit">submit</button>
-</form>
+        <div class="form-group">
+            <label for="id_image">Upload Image</label>
+            {{ form.image }}
+        </div>
 
-{% endblock  %}
+        <button type="submit" class="submit-btn">Post Tweet</button>
+    </form>
+</div>
+{% endblock %}
