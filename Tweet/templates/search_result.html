@@ -1,0 +1,23 @@
+{% extends "layout.html" %}
+{% load static %}
+
+{% block content %}
+
+{% if tweets %}
+    <p>Showing results for: <strong>{{ request.GET.q }}</strong></p>
+    <div class="tweet-grid">
+        {% for tweet in tweets %}
+        <div class="tweet-card">
+            {% if tweet.image %}
+                <img src="{{ tweet.image.url }}" alt="Tweet image">
+            {% endif %}
+            <p class="tweet-text">{{ tweet.tweet }}</p>
+            <p class="tweet-user">Posted by: <strong>{{ tweet.user.username }}</strong></p>
+        </div>
+        {% endfor %}
+    </div>
+{% else %}
+    <p>No results found.</p>
+{% endif %}
+
+{% endblock %}

@@ -9,8 +9,13 @@
         {% endif %}
         <div class="tweet-text">{{ tweet.tweet }}</div>
         <div class="tweet-buttons">
+            {% if  tweet.user == request.user %}
+            
+            
+
             <a href="{% url 'edit_tweet' tweet.pk %}" class="edit-btn">Edit</a>
             <a href="{% url 'tweet_delete' tweet.pk %}" class="delete-btn">Delete</a>
+            {% endif %}
         </div>
     </div>
     {% empty %}

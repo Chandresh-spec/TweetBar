@@ -1,0 +1,21 @@
+{% extends "layout.html" %}
+
+{% block content  %}
+
+{% if tweets %}
+    <div class="tweet-grid">
+        {% for tweet in tweets %}
+        <div class="tweet-card">
+            {% if tweet.image %}
+                <img src="{{ tweet.image.url }}" alt="Tweet image">
+            {% endif %}
+            <p class="tweet-text">{{ tweet.tweet }}</p>
+            <p class="tweet-user">Posted by: <strong>{{ tweet.user.username }}</strong></p>
+        </div>
+        {% endfor %}
+    </div>
+{% else %}
+    <p>NO Tweets </p>
+{% endif %}
+
+{% endblock  %}
